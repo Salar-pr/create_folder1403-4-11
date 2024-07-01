@@ -1,0 +1,25 @@
+import os
+import glob
+
+
+
+file_list = glob.glob('*')
+
+my_set =set()
+
+for each_file in file_list:
+    extension = each_file.split('.')[1]
+    my_set.add(extension)
+
+def create_folder():
+    for ext in my_set:
+        os.makedirs(ext + '_files')
+
+def move_file():
+    for each_file in file_list:
+        extension = each_file.split('.')[1]
+        os.rename(each_file,extension +'_file'+each_file)
+
+
+create_folder()
+move_file()
